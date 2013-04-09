@@ -21,13 +21,21 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: '.jshintrc'
 			},
-			all_files: [
+			all: [
 				'Gruntfile.js',
 				'<%= src.js %>',
 				'<%= test.unit %>'
 			]
+		},
+
+		karma: {
+			unit: {
+				configFile: '<%= test.karmaConfig %>',
+				singleRun: true	
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-karma');
 };
