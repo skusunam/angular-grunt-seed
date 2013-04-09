@@ -13,7 +13,7 @@ files = [
 reporters = ['progress'];
 
 // enable / disable colors in the output (reporters and logs)
-colors = false;
+colors = true;
 
 // level of logging
 // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
@@ -29,11 +29,13 @@ logLevel = LOG_INFO;
 // - IE (only Windows)
 browsers = ['Firefox'];
 
-preprocessors = {
-  '../app/js/*.js': 'coverage'
-};
-reporters = ['coverage'];
-coverageReporter = {
-  type : 'lcov',
-  dir : '../coverage/'
-}
+// preprocessors = {
+//   '../app/js/*.js': 'coverage'
+// };
+// reporters = ['coverage'];
+// //type values: html (default) || lcov (& html) || lcov only 
+// //|| text || text-summary || cobertura (xml format for Jenkins)
+// coverageReporter = {
+//   type : 'lcov',
+//   dir : '../coverage/'
+// }
