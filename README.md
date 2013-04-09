@@ -80,7 +80,3 @@ It uses [jasmine](http://pivotal.github.com/jasmine/) and
         directivessSpec.js      --> specs for directives
         filtersSpec.js          --> specs for filters
         servicesSpec.js         --> specs for services
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
