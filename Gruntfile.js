@@ -39,3 +39,4 @@ grunt.initConfig({
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-karma');
 };
+
