@@ -2,20 +2,21 @@
 
 module.exports = function(grunt) {
 
-grunt.initConfig({
+	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
-
+	
 		//JS Source files
 		src: {
 			js: ['app/js/**/*.js']
 		},
+		
 		//JS Test files
 		test: {
 			karmaConfig: 'test/karma.conf.js',
 			unit: ['test/unit/**/*.js']
 		},
-
+	
 		// Configure Lint\JSHint Task
 		jshint: {
 			options: {
@@ -27,7 +28,7 @@ grunt.initConfig({
 				'<%= test.unit %>'
 			]
 		},
-
+	
 		karma: {
 			unit: {
 				configFile: '<%= test.karmaConfig %>',
