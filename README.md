@@ -1,4 +1,4 @@
-# angular-grunt-seed — the seed for AngularJS apps with Grunt support (jshint, Karma, Watch, connect etc)
+## angular-grunt-seed — the seed for AngularJS apps with Grunt support (jshint, Karma, Watch, connect etc)
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app. You can use it to quickly bootstrap your angular webapp projects and dev environment for these projects. This comes with default Grunt build for lint, Karma, Watch etc.
 
@@ -15,7 +15,9 @@ Clone the angular-grunt-seed repository and start hacking...
 This will use concurrent task runner to do following tasks in a watch mode:
 
 1) Watch for any JS (src and test files) changes and run jsHint
+
 2) Watch for any JS (src and test files) changes and run Karma
+
 3) Start the Node server at "9000"
 
 
