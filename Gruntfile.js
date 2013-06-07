@@ -1,42 +1,74 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
-	
-    //JS Source files
+
     src: {
-      js: ['app/js/**/*.js']
+      // This will cover all JS files in 'js' and sub-folders
+      js: ['app/js/**/*.js'],
+      templates: ['app/partials/**/*.html']
     },
-		
+
     //JS Test files
     test: {
       karmaConfig: 'test/karma.conf.js',
       unit: ['test/unit/**/*.js']
     },
-	
+
     // Configure Lint\JSHint Task
     jshint: {
       options: {
         jshintrc: '.jshintrc'
       },
-      all: [
-        'Gruntfile.js',
-        '<%= src.js %>',
-        '<%= test.unit %>'
-      ]
+      files: {
+        src: ['Gruntfile.js', '<%= src.js %>', '<%= test.unit %>']
+      }
     },
-	
+
     karma: {
-      unit: {
+      dev: {
         configFile: '<%= test.karmaConfig %>',
-        singleRun: true	
+        singleRun: false
+      }
+    },
+
+    connect: {
+      web: {
+        options: {
+          port: 9000,
+          bases: '.',
+          keepalive: true
+        }
+      }
+    },
+
+    watch: {
+      jshint: {
+        files: ["<%= src.js %>", "<%= test.unit %>"],
+        tasks: ['jshint']
+      }
+    },
+
+    concurrent: {
+      dev: {
+        tasks: ['watch', 'watch-tests', 'web'],
+        options: {
+          logConcurrentOutput: true
+        }
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-concurrent');
+
+  grunt.registerTask('web', ['connect:web']);
+  grunt.registerTask('watch-tests', ['karma:dev']);
+  grunt.registerTask('default', ['concurrent:dev']);
 };
